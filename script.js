@@ -3,12 +3,227 @@ const $ = s => document.querySelector(s);
 const screens = [...document.querySelectorAll('.screen')];
 function show(id){screens.forEach(s=>s.classList.remove('active'));$(id).classList.add('active')}
 
-const introVideo=$('#introVideo');
-function finishIntro(){show('#passcode')}
-introVideo.addEventListener('ended',finishIntro);
-introVideo.addEventListener('error',()=>setTimeout(finishIntro,1200));
-$('#skipIntro').onclick=finishIntro;
-$('#unmuteBtn').onclick=()=>{introVideo.muted=false;introVideo.play();$('#unmuteBtn').textContent='Sound on ♫'};
+const introVideo = $('#introVideo');
+const introVideos = ['intro1.mp4', 'intro2.mp4'];
+let introIndex = 0;
+
+function finishIntro() {
+  show('#passcode');
+}
+
+function playIntro(index) {
+  if (index >= introVideos.length) {
+    finishIntro();
+    return;
+  }
+
+  introIndex = index;
+  introVideo.src = introVideos[introIndex];
+  introVideo.load();
+
+  const playPromise = introVideo.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      introVideo.muted = true;
+      introVideo.play().catch(() => {});
+    });
+  }
+}
+
+introVideo.addEventListener('ended', () => {
+  playIntro(introIndex + 1);
+});
+
+introVideo.addEventListener('error', () => {
+  playIntro(introIndex + 1);
+});
+
+$('#skipIntro').onclick = finishIntro;
+
+$('#unmuteBtn').onclick = () => {
+  introVideo.muted = false;
+  introVideo.play().catch(() => {});
+  $('#unmuteBtn').textContent = 'Sound on ♫';
+};
+
+playIntro(0);const introVideo = $('#introVideo');
+const introVideos = ['intro1.mp4', 'intro2.mp4'];
+let introIndex = 0;
+
+function finishIntro() {
+  show('#passcode');
+}
+
+function playIntro(index) {
+  if (index >= introVideos.length) {
+    finishIntro();
+    return;
+  }
+
+  introIndex = index;
+  introVideo.src = introVideos[introIndex];
+  introVideo.load();
+
+  const playPromise = introVideo.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      introVideo.muted = true;
+      introVideo.play().catch(() => {});
+    });
+  }
+}
+
+introVideo.addEventListener('ended', () => {
+  playIntro(introIndex + 1);
+});
+
+introVideo.addEventListener('error', () => {
+  playIntro(introIndex + 1);
+});
+
+$('#skipIntro').onclick = finishIntro;
+
+$('#unmuteBtn').onclick = () => {
+  introVideo.muted = false;
+  introVideo.play().catch(() => {});
+  $('#unmuteBtn').textContent = 'Sound on ♫';
+};
+
+playIntro(0);const introVideo = $('#introVideo');
+const introVideos = ['intro1.mp4', 'intro2.mp4'];
+let introIndex = 0;
+
+function finishIntro() {
+  show('#passcode');
+}
+
+function playIntro(index) {
+  if (index >= introVideos.length) {
+    finishIntro();
+    return;
+  }
+
+  introIndex = index;
+  introVideo.src = introVideos[introIndex];
+  introVideo.load();
+
+  const playPromise = introVideo.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      introVideo.muted = true;
+      introVideo.play().catch(() => {});
+    });
+  }
+}
+
+introVideo.addEventListener('ended', () => {
+  playIntro(introIndex + 1);
+});
+
+introVideo.addEventListener('error', () => {
+  playIntro(introIndex + 1);
+});
+
+$('#skipIntro').onclick = finishIntro;
+
+$('#unmuteBtn').onclick = () => {
+  introVideo.muted = false;
+  introVideo.play().catch(() => {});
+  $('#unmuteBtn').textContent = 'Sound on ♫';
+};
+
+playIntro(0);const introVideo = $('#introVideo');
+const introVideos = ['intro1.mp4', 'intro2.mp4'];
+let introIndex = 0;
+
+function finishIntro() {
+  show('#passcode');
+}
+
+function playIntro(index) {
+  if (index >= introVideos.length) {
+    finishIntro();
+    return;
+  }
+
+  introIndex = index;
+  introVideo.src = introVideos[introIndex];
+  introVideo.load();
+
+  const playPromise = introVideo.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      introVideo.muted = true;
+      introVideo.play().catch(() => {});
+    });
+  }
+}
+
+introVideo.addEventListener('ended', () => {
+  playIntro(introIndex + 1);
+});
+
+introVideo.addEventListener('error', () => {
+  playIntro(introIndex + 1);
+});
+
+$('#skipIntro').onclick = finishIntro;
+
+$('#unmuteBtn').onclick = () => {
+  introVideo.muted = false;
+  introVideo.play().catch(() => {});
+  $('#unmuteBtn').textContent = 'Sound on ♫';
+};
+
+playIntro(0);const introVideo = $('#introVideo');
+const introVideos = ['intro1.mp4', 'intro2.mp4'];
+let introIndex = 0;
+
+function finishIntro() {
+  show('#passcode');
+}
+
+function playIntro(index) {
+  if (index >= introVideos.length) {
+    finishIntro();
+    return;
+  }
+
+  introIndex = index;
+  introVideo.src = introVideos[introIndex];
+  introVideo.load();
+
+  const playPromise = introVideo.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      introVideo.muted = true;
+      introVideo.play().catch(() => {});
+    });
+  }
+}
+
+introVideo.addEventListener('ended', () => {
+  playIntro(introIndex + 1);
+});
+
+introVideo.addEventListener('error', () => {
+  playIntro(introIndex + 1);
+});
+
+$('#skipIntro').onclick = finishIntro;
+
+$('#unmuteBtn').onclick = () => {
+  introVideo.muted = false;
+  introVideo.play().catch(() => {});
+  $('#unmuteBtn').textContent = 'Sound on ♫';
+};
+
+playIntro(0);
 
 let pin='';
 const dots=[...document.querySelectorAll('#pinDots span')];
