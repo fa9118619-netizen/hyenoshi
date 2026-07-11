@@ -47,7 +47,8 @@ $('#unmuteBtn').onclick = () => {
   $('#unmuteBtn').textContent = 'Sound on ♫';
 };
 
-playIntro(0);const introVideo = $('#introVideo');
+playIntro(0);
+const introVideo = $('#introVideo');
 const introVideos = ['intro1.mp4', 'intro2.mp4'];
 let introIndex = 0;
 
